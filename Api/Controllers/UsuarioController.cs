@@ -11,7 +11,7 @@ namespace Api.Controllers
         [HttpPost("cadastro")]
         public async Task<IActionResult> CriarConta(Usuario usuario)
         {
-            
+            return Ok(usuario);
         }
     }
 }
