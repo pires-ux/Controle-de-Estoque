@@ -1,6 +1,12 @@
 @Api_HostAddress = http://localhost:5133
 
-GET {{Api_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{Api_HostAddress}}/api/Usuario/cadastro
+Content-Type: application/json
+
+{
+    "nome": "adriano",
+    "email": "adriano01@gmail.com",
+    "senha": "123456789"
+}
 
 ###
