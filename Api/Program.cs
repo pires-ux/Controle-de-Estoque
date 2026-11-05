@@ -5,6 +5,11 @@ using Microsoft.Identity.Web;
 using Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web.Resource;
+using Api.Repositorys.Interface;
+using Api.Repositorys;
+using Api.Services.Interface;
+using Api.Services;
+using Api.Models;
 
 namespace Api
 {
@@ -24,6 +29,10 @@ namespace Api
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+            builder.Services.AddScoped<IUsuarioService, ServiceUsuario>();
+
+            builder.Services.AddScoped<IUsuarioRepository, RepositoryUsuario>();
 
             var app = builder.Build();
 
