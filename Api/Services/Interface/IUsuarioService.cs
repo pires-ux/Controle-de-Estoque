@@ -1,6 +1,10 @@
-﻿namespace Api.Services.Interface
+﻿using Api.DTOs;
+
+namespace Api.Services.Interface
 {
     public interface IUsuarioService
     {
+
+        Task<ResponseUsuarioDTO> CriarUsuario(CriarUsuarioDTO criar);
     }
 }
