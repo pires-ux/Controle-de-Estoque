@@ -1,0 +1,22 @@
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 200px;
+    min-height: 200px;
+    max-width: 30%;
+    min-width: 300px;
+    margin-top: 20%;
+    margin-left: 35%;
+    margin-right: 25%;
+    position: center;
+    background-color: #a2c7eb;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0);
+}
+
+ #email, #senha{
+    width: 50%;
+    max-width: 50%;
+}
