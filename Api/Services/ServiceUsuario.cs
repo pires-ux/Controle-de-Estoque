@@ -22,7 +22,8 @@ namespace Api.Services
                 _log.LogWarning("Erro ao criar usuário: Email já cadastrado");
                 return null!;
             }
-
+            var token = BCrypt.Net.BCrypt.HashPassword(criar.Senha);
+            criar.Senha = token;
             var usuario = await _repo.CriarUsuario(criar);
             return new ResponseUsuarioDTO
             {
@@ -30,5 +31,7 @@ namespace Api.Services
                 token = "Token de autenticação",
             };
         }
+
+
     }
 }
