@@ -22,7 +22,7 @@ namespace Api.Controllers
 
 
         [HttpPost("cadastro")]
-        public async Task<IActionResult> CriarConta(CriarUsuarioDTO criar)
+        public async Task<IActionResult> CriarConta([FromBody] CriarUsuarioDTO criar)
         {
             var response = await _service.CriarUsuario(criar);
             if(response == null)

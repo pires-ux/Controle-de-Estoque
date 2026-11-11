@@ -34,6 +34,17 @@ namespace Api
 
             builder.Services.AddScoped<IUsuarioRepository, RepositoryUsuario>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("Frontend", policy =>
+                {
+                    policy
+                        .WithOrigins("http://localhost:5500")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -46,6 +57,7 @@ namespace Api
 
             app.UseAuthorization();
 
+            app.UseCors("Frontend");
 
             app.MapControllers();
 

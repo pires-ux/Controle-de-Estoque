@@ -1,0 +1,31 @@
+.cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #a2c7eb;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0);
+}
+
+#nome, #email, #senha{
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#btnCadastrar{
+    background-color: #040563;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
