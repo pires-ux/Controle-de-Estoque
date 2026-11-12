@@ -49,5 +49,11 @@ namespace Api.Repositorys
             }
             return true;
         }
+
+        public async Task<Usuario> BuscarEmail(string email)
+        {
+            var usuario = await _banco.Usuarios.FirstOrDefaultAsync(x => x.Email == email);
+            return usuario!;
+        }
     }
 }

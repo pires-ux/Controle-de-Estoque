@@ -8,5 +8,7 @@ namespace Api.Repositorys.Interface
 
         Task<Usuario> CriarUsuario(CriarUsuarioDTO criar);
         Task<bool> VerificarEmail(string email);
+        Task<Usuario> BuscarEmail(string email);
+
     }
 }

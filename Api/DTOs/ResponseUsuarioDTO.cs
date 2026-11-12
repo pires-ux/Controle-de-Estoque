@@ -6,5 +6,7 @@ namespace Api.DTOs
     {
         public Usuario usuario { get; set; }
         public string token { get; set; }
+
+
     }
 }

@@ -32,6 +32,19 @@ namespace Api.Services
             };
         }
 
+        public async Task<ResponseUsuarioDTO> LogarUsuario(LoginDTO login)
+        {
+            var result = await _repo.BuscarEmail(login.Email);
+            if (result == null) return null!;
 
+            bool verificarSenha = BCrypt.Net.BCrypt.Verify(result.Senha, login.Senha);
+            if (verificarSenha) return new ResponseUsuarioDTO
+            {
+                usuario = result,
+                token = "token"
+            };
+
+            else return null!;
+        }
     }
 }

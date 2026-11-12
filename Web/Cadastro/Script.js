@@ -28,6 +28,7 @@ form.addEventListener("submit", async (event) => {
         alert("Usuário cadastrado com sucesso!");
 
         form.reset();
+        
 
     } catch (error) {
         console.error("Erro:", error);

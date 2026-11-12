@@ -6,5 +6,6 @@ namespace Api.Services.Interface
     {
 
         Task<ResponseUsuarioDTO> CriarUsuario(CriarUsuarioDTO criar);
+        Task<ResponseUsuarioDTO> LogarUsuario(LoginDTO login);
     }
 }

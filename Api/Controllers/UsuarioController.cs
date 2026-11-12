@@ -32,5 +32,14 @@ namespace Api.Controllers
             }
             return Ok(response);
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> LogarConta([FromBody] LoginDTO login)
+        {
+            var resut = await _service.LogarUsuario(login);
+            if (resut == null) return BadRequest("Email ou senha incorreta");
+
+            return Ok(resut);
+        }
     }
 }
