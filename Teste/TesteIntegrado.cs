@@ -1,4 +1,11 @@
-﻿
+﻿using Api;
+using Api.DTOs;
+using Microsoft.Identity.Web.TokenCacheProviders;
+using System.Text.Json;
+using System.Text;
+using System.Net;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Teste
 {
@@ -13,9 +20,25 @@ namespace Teste
         }
 
         [Fact]
-        public void Test1()
+        public async Task Cadastro_Sucesso()
         {
+            var criar = new CriarUsuarioDTO
+            {
+                Nome = "teste",
+                Email = "teste@gmail.com",
+                Senha = "0923242"
+            };
+            var json = JsonSerializer.Serialize(criar);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var result = await _client.PostAsync("api/Usuario/cadastro", content);
+
             
+        }
+
+        [Fact]
+        public void Login_Sucesso()
+        {
+
         }
     }
 }

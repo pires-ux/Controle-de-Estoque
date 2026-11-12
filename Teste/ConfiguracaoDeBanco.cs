@@ -27,7 +27,7 @@ namespace Teste
 
                 Services.AddDbContext<Banco>(options =>
                 options.UseSqlServer(
-                    "Server=localhost,1433;Database=Controle_de_Estoque;User Id=sa;Password=07032009Aspc!;TrustServerCertificate=True;"));
+                    "Server=localhost\\SQLEXPRESS;Database=teste;Trusted_Connection=True;TrustServerCertificate=True"));
             });
             
         }
