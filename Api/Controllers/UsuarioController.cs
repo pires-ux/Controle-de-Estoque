@@ -30,7 +30,7 @@ namespace Api.Controllers
                 _log.LogWarning("Erro ao criar usuário");
                 return BadRequest("Erro ao criar usuário");
             }
-            return Ok("Conta criada " + response);
+            return Ok(response);
         }
 
         [HttpPost("login")]

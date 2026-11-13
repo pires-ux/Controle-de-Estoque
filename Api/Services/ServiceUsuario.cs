@@ -7,12 +7,14 @@ namespace Api.Services
     public class ServiceUsuario: IUsuarioService
     {
         private readonly IUsuarioRepository _repo;
+        private readonly TokenService _token;
         private readonly ILogger<ServiceUsuario> _log;
 
-        public ServiceUsuario(IUsuarioRepository repo, ILogger<ServiceUsuario> log)
+        public ServiceUsuario(IUsuarioRepository repo, ILogger<ServiceUsuario> log, TokenService token)
         {
             _repo = repo;
             _log = log;
+            _token = token;
         }
 
         public async Task<ResponseUsuarioDTO> CriarUsuario(CriarUsuarioDTO criar)
@@ -37,12 +39,17 @@ namespace Api.Services
             var result = await _repo.BuscarEmail(login.Email);
             if (result == null) return null!;
 
-            bool verificarSenha = BCrypt.Net.BCrypt.Verify(result.Senha, login.Senha);
-            if (verificarSenha) return new ResponseUsuarioDTO
+            bool verificarSenha = BCrypt.Net.BCrypt.Verify(login.Senha, result.Senha);
+            if (verificarSenha)
             {
-                usuario = result,
-                token = "token"
-            };
+                var token = _token.Token(result);
+
+                return new ResponseUsuarioDTO
+                {
+                    usuario = result,
+                    token = token
+                };
+            }
 
             else return null!;
         }

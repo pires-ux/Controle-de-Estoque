@@ -18,7 +18,7 @@ namespace Api.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(30, MinimumLength = 6, ErrorMessage = "A senha deve ter entre 6 e 30 caracteres")]
+        [MinLength(6)]
         public string Senha { get; set; }
     }
 }

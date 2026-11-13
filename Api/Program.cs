@@ -34,6 +34,8 @@ namespace Api
 
             builder.Services.AddScoped<IUsuarioRepository, RepositoryUsuario>();
 
+            builder.Services.AddScoped<TokenService>();
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("Frontend", policy =>
@@ -54,6 +56,8 @@ namespace Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
