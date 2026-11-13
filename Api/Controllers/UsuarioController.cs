@@ -2,6 +2,7 @@
 using Api.Models;
 using Api.Repositorys.Interface;
 using Api.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

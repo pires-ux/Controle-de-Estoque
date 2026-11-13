@@ -39,6 +39,9 @@ namespace Api
 
             var token = new JwtSecurityToken(
                 claims: claims,
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: credenciais
             );
 

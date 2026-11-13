@@ -1,15 +1,17 @@
+using Api.Data;
+using Api.Models;
+using Api.Repositorys;
+using Api.Repositorys.Interface;
+using Api.Services;
+using Api.Services.Interface;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Abstractions;
 using Microsoft.Identity.Web;
-using Api.Data;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web.Resource;
-using Api.Repositorys.Interface;
-using Api.Repositorys;
-using Api.Services.Interface;
-using Api.Services;
-using Api.Models;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Api
 {
@@ -21,7 +23,20 @@ namespace Api
 
             // Add services to the container.
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+                };
+            });
 
             builder.Services.AddDbContext<Banco>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
