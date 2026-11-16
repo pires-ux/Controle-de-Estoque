@@ -26,6 +26,8 @@ form.addEventListener("submit", async (event) => {
         }
 
         alert("Usuário cadastrado com sucesso!");
+        
+        window.location.href = "../Principal/Tela_Principal.html"
 
         form.reset();
         
