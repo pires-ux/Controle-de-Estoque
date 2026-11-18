@@ -18,3 +18,14 @@ Content-Type: application/json
     "senha": "1234567"
 }
 
+
+###
+POST {{Api_HostAddress}}/api/Produto/AddProduto
+Content-Type: application/json
+{
+    "nomeproduto": "Arroz 5KG",
+    "descricao": "Alimento",
+    "preco": 20.50,
+    "estoque": 50 
+
+}

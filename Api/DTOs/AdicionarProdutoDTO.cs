@@ -8,7 +8,6 @@ namespace Api.DTOs
         [Required]
         public string NomeProduto { get; set; }
 
-        [Required]
         public string Descricao { get; set; }
 
         [Required]
@@ -17,13 +16,7 @@ namespace Api.DTOs
         [Required]
         public int Estoque { get; set; }
 
-        [Required]
         public decimal TotalValor { get; set; }
 
-
-        public AdicionarProdutoDTO()
-        {
-            TotalValor = Preco * Estoque;
-        }
     }
 }

@@ -2,6 +2,7 @@
 using Api.DTOs;
 using Api.Models;
 using Api.Repositorys.Interface;
+using Microsoft.Identity.Client.NativeInterop;
 
 namespace Api.Repositorys
 {
@@ -16,9 +17,18 @@ namespace Api.Repositorys
             _log = log;
         }
 
-        public async Task<Produto> Adicionar(AdicionarProdutoDTO adicionar)
+        public async Task<bool> Adicionar(Produto adicionar)
         {
-            return null;
+            try
+            {
+                _db.Produtos.Add(adicionar);
+                _db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                throw new Exception("erro ao adicionar produto");
+            }
         }
 
         public Task<Produto> Editar(EditProdutoDTO edit)

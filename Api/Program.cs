@@ -49,6 +49,10 @@ namespace Api
 
             builder.Services.AddScoped<IUsuarioRepository, RepositoryUsuario>();
 
+            builder.Services.AddScoped<IProdutoRepository, RepositoryProduto>();
+
+            builder.Services.AddScoped<IProdutoService, ProdutoService>();
+
             builder.Services.AddScoped<TokenService>();
 
             builder.Services.AddCors(options =>

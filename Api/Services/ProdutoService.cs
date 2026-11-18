@@ -19,8 +19,18 @@ namespace Api.Services
 
         public async Task<bool> Adicionar(AdicionarProdutoDTO adicionar)
         {
+            var produto = new Produto
+            {
+                Descricao = adicionar.Descricao,
+                Preco = adicionar.Preco,
+                ProdutoNome = adicionar.NomeProduto,
+                TotalValor = adicionar.TotalValor,
+                Quantidade = adicionar.Estoque
+            };
+            bool adicionou = await  _repo.Adicionar(produto);
+            if (!adicionou) return false;
 
-            return false;
+            return true;
         }
 
         public Task<Produto> Editar(EditProdutoDTO edit)
