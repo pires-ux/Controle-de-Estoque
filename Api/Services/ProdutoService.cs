@@ -2,6 +2,7 @@
 using Api.Models;
 using Api.Repositorys.Interface;
 using Api.Services.Interface;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Services
 {
@@ -17,7 +18,7 @@ namespace Api.Services
         }
 
 
-        public async Task<bool> Adicionar(AdicionarProdutoDTO adicionar)
+        public async Task<bool> Adicionar( AdicionarProdutoDTO adicionar)
         {
             var produto = new Produto
             {

@@ -1,0 +1,43 @@
+const api = "https://localhost:7140/api/Produto/AddProduto"
+
+const forms = document.querySelector("#adicionar")
+
+forms.addEventListener("submit", async (event) => {
+    event.preventDefault()
+
+    var preco = Number(document.querySelector("#preco").value)
+    var estoque = Number(document.querySelector("#estoque").value)
+
+    const produto = {
+        nomeproduto: document.querySelector("#produto").value,
+        descricao: document.querySelector("#descricao").value,
+        preco: preco,
+        estoque: estoque,
+        totalValor: Multiplicar(estoque, preco)
+    }
+
+    try{
+        const response = await fetch(api, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(produto)
+        })
+
+        if(!response.ok){
+            alert("erro ao adicionar produto")
+            throw new Error(response.status)
+        }else{
+            alert("produto adicionado")
+        }
+    }
+    catch(error){
+        console.error("erro ao acessar api")
+
+    }
+
+})
+
+function Multiplicar(estoque, valor){
+    var result = estoque * valor;
+    return result
+}
