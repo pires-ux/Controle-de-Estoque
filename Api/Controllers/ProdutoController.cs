@@ -1,4 +1,4 @@
-﻿using Api.DTOs;
+﻿using Api.DTOs.Produto;
 using Api.Services.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,8 +37,10 @@ namespace Api.Controllers
         [HttpGet("Mostrar")]
         public async Task<IActionResult> Mostrar()
         {
+            var produtos = await _serv.Mostrar();
+            if(produtos == null)return BadRequest("Nenhum produto encontrado");
 
-            return null;
+            return Ok(produtos);
         }
 
         [HttpDelete("Excluir/ {id}")]

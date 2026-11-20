@@ -1,4 +1,4 @@
-﻿using Api.DTOs;
+﻿using Api.DTOs.Produto;
 using Api.Models;
 using Api.Repositorys.Interface;
 using Api.Services.Interface;
@@ -48,7 +48,10 @@ namespace Api.Services
 
         public Task<List<Produto>> Mostrar()
         {
-            return null;
+            var produtos = _repo.Mostrar();
+            if (produtos == null) return null!;
+
+            return produtos;
         }
     }
 }

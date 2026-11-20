@@ -29,3 +29,7 @@ Content-Type: application/json
     "estoque": 50 
 
 }
+
+###
+GET {{Api_HostAddress}}/api/Produto/Mostrar
+Accept: application/json

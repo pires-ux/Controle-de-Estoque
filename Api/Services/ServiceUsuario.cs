@@ -1,4 +1,4 @@
-﻿using Api.DTOs;
+﻿using Api.DTOs.Usuario;
 using Api.Repositorys.Interface;
 using Api.Services.Interface;
 

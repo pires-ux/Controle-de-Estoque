@@ -1,5 +1,5 @@
 ﻿using Api.Data;
-using Api.DTOs;
+using Api.DTOs.Usuario;
 using Api.Models;
 using Api.Repositorys.Interface;
 using Api.Services.Interface;

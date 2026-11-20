@@ -1,5 +1,5 @@
 ﻿using Api.Data;
-using Api.DTOs;
+using Api.DTOs.Produto;
 using Api.Models;
 using Api.Repositorys.Interface;
 using Microsoft.Identity.Client.NativeInterop;
@@ -39,13 +39,14 @@ namespace Api.Repositorys
 
         public Task<bool> Excluir(int id)
         {
+
             return null;
         }
 
 
-        public Task<List<Produto>> Mostrar()
+        public async Task<List<Produto>> Mostrar()
         {
-            return null;
+            return _db.Produtos.ToList();
         }
     }
 }

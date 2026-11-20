@@ -1,4 +1,4 @@
-﻿namespace Api.DTOs
+﻿namespace Api.DTOs.Produto
 {
     public class EditProdutoDTO
     {

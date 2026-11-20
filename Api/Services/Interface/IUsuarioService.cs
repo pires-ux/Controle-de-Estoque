@@ -1,4 +1,4 @@
-﻿using Api.DTOs;
+﻿using Api.DTOs.Usuario;
 
 namespace Api.Services.Interface
 {

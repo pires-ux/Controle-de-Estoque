@@ -1,4 +1,4 @@
-﻿using Api.DTOs;
+﻿using Api.DTOs.Produto;
 using Api.Models;
 
 namespace Api.Repositorys.Interface
