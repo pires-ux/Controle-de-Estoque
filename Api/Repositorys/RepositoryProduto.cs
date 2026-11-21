@@ -34,7 +34,24 @@ namespace Api.Repositorys
 
         public async Task<Produto> Editar(EditProdutoDTO edit, int id)
         {
+            var editarProduto = _db.Produtos.Find(id);
+
+            if(editarProduto == null)
+            {
+                return null;
+            }
+
+            editarProduto!.Descricao = edit.Descricao;
+            editarProduto.Preco = edit.Preco;
+            editarProduto.Quantidade = edit.Quantidade;
+            editarProduto.TotalValor = edit.TotalValor;
+            editarProduto.ProdutoNome = edit.NomeProduto;
+
+            _db.SaveChanges();
             
+            var produto = _db.Produtos.Find(id);
+            _log.LogInformation($"mudança feita {produto}");
+            return produto!;
         }
 
 

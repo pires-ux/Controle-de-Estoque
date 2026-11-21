@@ -38,3 +38,16 @@ Accept: application/json
 ###
 DELETE {{Api_HostAddress}}/api/Produto/Excluir/1
 Accept: application/json
+
+
+###
+PUT {{Api_HostAddress}}/api/Produto/EditarProduto/2
+Content-Type: application/json
+
+{
+    "nomeproduto": "arroz 5KG",
+    "descricao": "alimento",
+    "preco": 20.5,
+    "quantidade": 60,
+    "totalvalor": 1230
+}

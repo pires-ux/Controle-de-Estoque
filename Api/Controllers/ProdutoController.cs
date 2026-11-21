@@ -27,11 +27,13 @@ namespace Api.Controllers
             return Ok("Produto adicionado");
         }
 
-        [HttpPut("EditarProduto")]
-        public async Task<IActionResult> Editar([FromBody] EditProdutoDTO edit)
+        [HttpPut("EditarProduto/{id}")]
+        public async Task<IActionResult> Editar([FromBody] EditProdutoDTO edit, int id)
         {
-            
-            return null;
+            var produto = await _serv.Editar(edit, id);
+            if (produto == null) return BadRequest("Não ouve mudança no produto");
+
+            return Ok($"Mudança de produto feita");
         }
 
         [HttpGet("Mostrar")]

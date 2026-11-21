@@ -34,9 +34,31 @@ namespace Api.Services
             return true;
         }
 
-        public Task<Produto> Editar(EditProdutoDTO edit)
+        public async Task<Produto> Editar(EditProdutoDTO edit, int id)
         {
-            return null;
+            try
+            {
+                var produto = _repo.Editar(edit, id);
+
+                if (produto == null) return null;
+
+                var produtoVerificar = new Produto
+                {
+                    Id = id,
+                    ProdutoNome = edit.NomeProduto,
+                    Descricao = edit.Descricao,
+                    Preco = edit.Preco,
+                    Quantidade = edit.Quantidade,
+                    TotalValor = edit.TotalValor
+                };
+                return produto;
+            }
+            catch
+            {
+                
+                _log.LogCritical("");
+                throw new Exception("Erro ao mudar produto");
+            }
         }
 
 
