@@ -38,7 +38,7 @@ namespace Api.Services
         {
             try
             {
-                var produto = _repo.Editar(edit, id);
+                var produto = await _repo.Editar(edit, id);
 
                 if (produto == null) return null;
 
