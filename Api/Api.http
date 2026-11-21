@@ -33,3 +33,8 @@ Content-Type: application/json
 ###
 GET {{Api_HostAddress}}/api/Produto/Mostrar
 Accept: application/json
+
+
+###
+DELETE {{Api_HostAddress}}/api/Produto/Excluir/1
+Accept: application/json

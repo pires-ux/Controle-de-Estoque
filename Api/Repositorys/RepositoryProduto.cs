@@ -2,6 +2,7 @@
 using Api.DTOs.Produto;
 using Api.Models;
 using Api.Repositorys.Interface;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client.NativeInterop;
 
 namespace Api.Repositorys
@@ -31,16 +32,22 @@ namespace Api.Repositorys
             }
         }
 
-        public Task<Produto> Editar(EditProdutoDTO edit)
+        public async Task<Produto> Editar(EditProdutoDTO edit, int id)
         {
-            return null;
+            
         }
 
 
-        public Task<bool> Excluir(int id)
+        public async Task<bool> Excluir(int id)
         {
-
-            return null;
+            var produtoDeletar = _db.Produtos.Find(id);
+            if(produtoDeletar != null)
+            {
+                _db.Produtos.Remove(produtoDeletar);
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
 

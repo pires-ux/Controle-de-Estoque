@@ -7,7 +7,7 @@ namespace Api.Services.Interface
     {
 
         Task<bool> Adicionar(AdicionarProdutoDTO adicionar);
-        Task<Produto> Editar(EditProdutoDTO edit);
+        Task<Produto> Editar(EditProdutoDTO edit, int id);
         Task<bool> Excluir(int id);
         Task<List<Produto>> Mostrar();
 

@@ -43,11 +43,11 @@ namespace Api.Controllers
             return Ok(produtos);
         }
 
-        [HttpDelete("Excluir/ {id}")]
+        [HttpDelete("Excluir/{id}")]
         public async Task<IActionResult> Excluir(int id)
         {
-
-            return null;
+            await _serv.Excluir(id);
+            return Ok("Produto excluido");
         }
 
 

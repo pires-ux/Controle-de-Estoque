@@ -40,9 +40,13 @@ namespace Api.Services
         }
 
 
-        public Task<bool> Excluir(int id)
+        public async Task<bool> Excluir(int id)
         {
-            return null;
+            if (!await _repo.Excluir(id))
+            {
+                throw new Exception("Erro ao excluir produto");
+            }
+            return true;
         }
 
 

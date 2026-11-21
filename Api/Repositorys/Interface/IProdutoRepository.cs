@@ -7,7 +7,7 @@ namespace Api.Repositorys.Interface
     {
 
         Task<bool> Adicionar(Produto adicionar);
-        Task<Produto> Editar(EditProdutoDTO edit);
+        Task<Produto> Editar(EditProdutoDTO edit, int id);
         Task<bool> Excluir(int id);
         Task<List<Produto>> Mostrar();
 
