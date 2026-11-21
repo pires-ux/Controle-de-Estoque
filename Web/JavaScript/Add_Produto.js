@@ -1,4 +1,10 @@
-const api = "https://localhost:7140/api/Produto/AddProduto"
+const apiAdicionar = "https://localhost:7140/api/Produto/AddProduto"
+
+
+
+//Tela Add_Produto 
+//---------------------------------------------------------------------
+
 
 const forms = document.querySelector("#adicionar")
 
@@ -17,7 +23,7 @@ forms.addEventListener("submit", async (event) => {
     }
 
     try{
-        const response = await fetch(api, {
+        const response = await fetch(apiAdicionar, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(produto)
@@ -41,3 +47,7 @@ function Multiplicar(estoque, valor){
     var result = estoque * valor;
     return result
 }
+
+
+
+

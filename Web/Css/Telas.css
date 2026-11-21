@@ -5,8 +5,18 @@ header{
 }
 
 #adicionar{
-    text-align: center;
+    text-align: center; 
     margin:auto;
     width: 300px;
     height: 220px;
+}
+
+thead{
+    background: rgb(0 176 255 / 28%);
+    
+}
+
+table{
+    background: rgb(170, 200, 255);
+    
 }
