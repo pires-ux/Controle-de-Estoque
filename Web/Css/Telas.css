@@ -20,3 +20,11 @@ table{
     background: rgb(170, 200, 255);
     
 }
+
+.editar{
+    background: rgb(0, 140, 255);
+}
+
+.excluir{
+    background: red;
+}
