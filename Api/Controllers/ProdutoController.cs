@@ -28,7 +28,7 @@ namespace Api.Controllers
         }
 
         [HttpPut("EditarProduto/{id}")]
-        public async Task<IActionResult> Editar([FromBody] EditProdutoDTO edit, int id)
+        public async Task<IActionResult> Editar(int id,[FromBody] EditProdutoDTO edit)
         {
             var produto = await _serv.Editar(edit, id);
             if (produto == null) return BadRequest("Não ouve mudança no produto");
@@ -48,7 +48,9 @@ namespace Api.Controllers
         [HttpDelete("Excluir/{id}")]
         public async Task<IActionResult> Excluir(int id)
         {
-            await _serv.Excluir(id);
+            if (!await _serv.Excluir(id)) {
+                BadRequest("produto não encontrado"); 
+            }
             return Ok("Produto excluido");
         }
 

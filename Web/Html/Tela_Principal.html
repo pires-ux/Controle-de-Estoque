@@ -11,6 +11,7 @@
         <h1>DashBoard</h1>
     </header>
     <main>
+        <a href="Add_Produto.html" id="btnAdicionar">+ Adiconar produto</a>
         <table>
             <thead>
                 <tr>
@@ -29,6 +30,25 @@
         </table>
     </main>
 
+
+    <div id="msgEditar">
+        <Form id="formEditar">
+            <label for="produto">Produto</label><br>
+            <input type="text" name="produto" id="produto"><br>
+
+            <label for="descrição">Descrição</label><br>
+            <input type="text" name="descricao" id="descricao"><br>
+
+            <label for="preco">Preço</label><br>
+            <input type="text" name="preco" id="preco"><br>
+
+            <label for="produto"> Quantidade</label><br>
+            <input type="text" name="quantidade" id="quantidade"><br>
+
+            <button id="mudar" type="submit">Enviar</button>
+        </Form>
+        <button id="cancelar">X</button>
+    </div>
     <script src="../JavaScript/Tela_Principal.js"></script>
 </body>
 </html>

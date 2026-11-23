@@ -67,7 +67,7 @@ namespace Api.Services
         {
             if (!await _repo.Excluir(id))
             {
-                throw new Exception("Erro ao excluir produto");
+                return false;
             }
             return true;
         }

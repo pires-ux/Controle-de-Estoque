@@ -41,7 +41,7 @@ Accept: application/json
 
 
 ###
-PUT {{Api_HostAddress}}/api/Produto/EditarProduto/2
+PUT {{Api_HostAddress}}/api/Produto/EditarProduto/1004
 Content-Type: application/json
 
 {

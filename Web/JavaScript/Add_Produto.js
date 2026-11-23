@@ -11,12 +11,12 @@ const forms = document.querySelector("#adicionar")
 forms.addEventListener("submit", async (event) => {
     event.preventDefault()
 
-    var preco = Number(document.querySelector("#preco").value)
-    var estoque = Number(document.querySelector("#estoque").value)
+    var preco = Number(document.querySelector("#Addpreco").value)
+    var estoque = Number(document.querySelector("#Addestoque").value)
 
     const produto = {
-        nomeproduto: document.querySelector("#produto").value,
-        descricao: document.querySelector("#descricao").value,
+        nomeproduto: document.querySelector("#Addproduto").value,
+        descricao: document.querySelector("#Adddescricao").value,
         preco: preco,
         estoque: estoque,
         totalValor: Multiplicar(estoque, preco)
