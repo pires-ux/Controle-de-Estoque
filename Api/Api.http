@@ -1,5 +1,6 @@
 @Api_HostAddress = https://localhost:7140
 
+# @name login
 POST {{Api_HostAddress}}/api/Usuario/cadastro
 Content-Type: application/json
 
@@ -33,6 +34,7 @@ Content-Type: application/json
 ###
 GET {{Api_HostAddress}}/api/Produto/Mostrar
 Accept: application/json
+Authorization: Bearer {{login.response.body.$.token}}
 
 
 ###

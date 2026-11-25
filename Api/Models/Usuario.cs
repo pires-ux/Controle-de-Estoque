@@ -20,5 +20,7 @@ namespace Api.Models
         [Required]
         [MinLength(6)]
         public string Senha { get; set; }
+
+        public List<Produto> Produtos { get; set; }
     }
 }

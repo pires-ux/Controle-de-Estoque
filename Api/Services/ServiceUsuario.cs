@@ -30,7 +30,7 @@ namespace Api.Services
             return new ResponseUsuarioDTO
             {
                 usuario = usuario,
-                token = "Token de autenticação",
+                token = _token.Token(usuario),
             };
         }
 

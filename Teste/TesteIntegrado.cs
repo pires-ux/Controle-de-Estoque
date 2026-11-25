@@ -1,5 +1,5 @@
 ﻿using Api;
-using Api.DTOs;
+using Api.DTOs.Usuario;
 using Microsoft.Identity.Web.TokenCacheProviders;
 using System.Text.Json;
 using System.Text;

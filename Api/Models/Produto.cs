@@ -20,5 +20,8 @@ namespace Api.Models
 
         [Required]
         public decimal TotalValor { get; set; }
+
+        [Required]
+        public Usuario usuario { get; set; }
     }
 }

@@ -29,7 +29,7 @@ formulario.addEventListener("submit", async (event) => {
 
             alert("Login realizado com sucesso!");
 
-            window.location.href = "../Principal/Tela_Principal.html";
+            window.location.href = "../Html/Tela_Principal.html";
 
         } else {
 

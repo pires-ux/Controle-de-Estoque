@@ -46,7 +46,12 @@ namespace Api.Migrations
                     b.Property<decimal>("TotalValor")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("usuarioId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("usuarioId");
 
                     b.ToTable("Produtos");
                 });
@@ -75,6 +80,22 @@ namespace Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Api.Models.Produto", b =>
+                {
+                    b.HasOne("Api.Models.Usuario", "usuario")
+                        .WithMany("Produtos")
+                        .HasForeignKey("usuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("usuario");
+                });
+
+            modelBuilder.Entity("Api.Models.Usuario", b =>
+                {
+                    b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618
         }

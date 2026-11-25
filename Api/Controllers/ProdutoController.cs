@@ -1,10 +1,12 @@
 ﻿using Api.DTOs.Produto;
 using Api.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProdutoController : ControllerBase
@@ -20,6 +22,7 @@ namespace Api.Controllers
 
 
         [HttpPost("AddProduto")]
+        [Authorize]
         public async Task<IActionResult> AdicionarProduto([FromBody] AdicionarProdutoDTO adicionar)
         {
             var adicionou = await _serv.Adicionar(adicionar);
@@ -28,6 +31,7 @@ namespace Api.Controllers
         }
 
         [HttpPut("EditarProduto/{id}")]
+        [Authorize]
         public async Task<IActionResult> Editar(int id,[FromBody] EditProdutoDTO edit)
         {
             var produto = await _serv.Editar(edit, id);
@@ -37,6 +41,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("Mostrar")]
+        [Authorize]
         public async Task<IActionResult> Mostrar()
         {
             var produtos = await _serv.Mostrar();
@@ -46,6 +51,7 @@ namespace Api.Controllers
         }
 
         [HttpDelete("Excluir/{id}")]
+        [Authorize]
         public async Task<IActionResult> Excluir(int id)
         {
             if (!await _serv.Excluir(id)) {

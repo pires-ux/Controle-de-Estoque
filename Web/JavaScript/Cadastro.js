@@ -25,9 +25,12 @@ form.addEventListener("submit", async (event) => {
             throw new Error(`Erro HTTP: ${response.status}`);
         }
 
-        alert("Usuário cadastrado com sucesso!");
+        console.log("Usuário cadastrado com sucesso!")
+
+        const token = response.token
+        console.log(token)
         
-        window.location.href = "../Principal/Tela_Principal.html"
+        window.location.href = "../Html/Tela_Principal.html"
 
         form.reset();
         
