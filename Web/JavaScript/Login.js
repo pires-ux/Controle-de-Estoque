@@ -27,6 +27,9 @@ formulario.addEventListener("submit", async (event) => {
 
         if (response.ok) {
 
+            const resultado = await response.json();
+            localStorage.setItem("jwt", resultado.token);
+
             alert("Login realizado com sucesso!");
 
             window.location.href = "../Html/Tela_Principal.html";
