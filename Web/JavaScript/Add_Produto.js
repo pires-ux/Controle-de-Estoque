@@ -1,18 +1,13 @@
-const apiAdicionar = "https://localhost:7140/api/Produto/AddProduto"
 
+const apiAdicionar = "https://localhost:7140/api/Produto/AddProduto";
 
-
-//Tela Add_Produto 
-//---------------------------------------------------------------------
-
-
-const forms = document.querySelector("#adicionar")
+const forms = document.querySelector("#adicionar");
 
 forms.addEventListener("submit", async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    var preco = Number(document.querySelector("#Addpreco").value)
-    var estoque = Number(document.querySelector("#Addestoque").value)
+    const preco = Number(document.querySelector("#Addpreco").value);
+    const estoque = Number(document.querySelector("#Addestoque").value);
 
     const produto = {
         nomeproduto: document.querySelector("#Addproduto").value,
@@ -20,34 +15,30 @@ forms.addEventListener("submit", async (event) => {
         preco: preco,
         estoque: estoque,
         totalValor: Multiplicar(estoque, preco)
-    }
+    };
 
-    try{
+    try {
+        const token = localStorage.getItem("jwt");
         const response = await fetch(apiAdicionar, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
             body: JSON.stringify(produto)
-        })
+        });
 
-        if(!response.ok){
-            alert("erro ao adicionar produto")
-            throw new Error(response.status)
-        }else{
-            alert("produto adicionado")
+        if (!response.ok) {
+            alert("Erro ao adicionar produto");
+            throw new Error(response.status);
+        } else {
+            alert("Produto adicionado");
         }
+    } catch (error) {
+        console.error("Erro ao acessar API:", error);
     }
-    catch(error){
-        console.error("erro ao acessar api")
+});
 
-    }
-
-})
-
-function Multiplicar(estoque, valor){
-    var result = estoque * valor;
-    return result
+function Multiplicar(estoque, valor) {
+    return estoque * valor;
 }
-
-
-
-
