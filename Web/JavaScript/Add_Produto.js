@@ -25,7 +25,10 @@ forms.addEventListener("submit", async (event) => {
     try{
         const response = await fetch(apiAdicionar, {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("jwt")}`
+            },
             body: JSON.stringify(produto)
         })
 
