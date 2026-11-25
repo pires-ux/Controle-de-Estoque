@@ -23,7 +23,13 @@ window.addEventListener("load", async function carregar() {
 
     console.log("Página completamente carregada!");
 
-    const response = await fetch(apiMostrar);
+    const token = localStorage.getItem("jwt");
+
+    const response = await fetch(apiMostrar, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
     const produtos = await response.json();
 
     Listar(produtos);
@@ -148,8 +154,13 @@ formulario.addEventListener("submit", async function(event) {
 
 async function Excluir(id) {
 
+    const token = localStorage.getItem("jwt");
+
     const response = await fetch(`${apiExcluir}/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
     });
 
     if (response.ok) {
@@ -176,7 +187,8 @@ async function Editar(id, novoProduto) {
     const response = await fetch(`${apiEditar}/${id}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("jwt")}`
         },
         body: JSON.stringify(novoProduto)
     });
