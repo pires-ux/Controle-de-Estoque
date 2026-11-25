@@ -73,14 +73,13 @@ namespace Api
             {
                 app.MapOpenApi();
             }
-
             app.UseHttpsRedirection();
+
+            app.UseCors("Frontend");
 
             app.UseAuthentication();
 
-            app.UseAuthorization();
-
-            app.UseCors("Frontend");
+            app.UseAuthorization();          
 
             app.MapControllers();
 
